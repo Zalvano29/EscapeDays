@@ -151,7 +151,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -169,6 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b3d2cfe88eff94eaf8ad8f57276a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EscapeDays.Player.Bullet
-  _speed: 20
+  _speed: 30
   _damage: 10
   _lifetime: 3

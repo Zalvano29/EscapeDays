@@ -23,22 +23,22 @@ namespace EscapeDays.Player
 
             // -----------------------
         }
-
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            Debug.Log($"[Bullet] Menabrak objek: {collision.gameObject.name}");
+            // Catatan: variabel 'collision' di sini bertipe Collision2D (bukan Collider2D)
+            Debug.Log($"[Bullet] Menabrak benda padat: {collision.gameObject.name}");
 
-            // Mengecek apakah yang ditabrak berada di layer "Enemy"
+            // Mengecek layer objek yang ditabrak
             if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
-                Enemy.EnemyVitals enemyVitals = collision.GetComponent<Enemy.EnemyVitals>();
+                Enemy.EnemyVitals enemyVitals = collision.gameObject.GetComponent<Enemy.EnemyVitals>();
                 if (enemyVitals != null)
                 {
                     enemyVitals.TakeDamage(_damage);
                 }
             }
 
-            // Peluru hancur setelah mengenai apa pun (musuh atau tembok)
+            // Peluru langsung hancur saat berbenturan fisik dengan apa pun (tembok/musuh)
             Destroy(gameObject);
         }
     }
