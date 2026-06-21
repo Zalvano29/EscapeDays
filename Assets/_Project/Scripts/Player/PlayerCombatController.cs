@@ -42,7 +42,7 @@ namespace EscapeDays.Player
             }
         }
 
-        private void OnDrawGizmosSelected()
+        private void OnDrawGizmos()
         {
             if (_attackPoint == null) return;
 
