@@ -3,21 +3,57 @@ using UnityEngine.InputSystem;
 
 namespace EscapeDays.Player
 {
+    // Memaksa Unity agar skrip BulletPool selalu ada di objek yang sama dengan skrip ini
+    [RequireComponent(typeof(BulletPool))]
     public class PlayerShootingController : MonoBehaviour
     {
         [Header("Gun Settings")]
         [Tooltip("Tarik titik kumpul (ujung laras senjata) ke sini")]
         [SerializeField] private Transform _firePoint;
-        [Tooltip("Tarik prefab Bullet dari folder Project ke sini")]
-        [SerializeField] private GameObject _bulletPrefab;
 
         [Header("Shooting Logic")]
         [SerializeField] private float _fireRate = 0.2f;
         private float _nextFireTime = 0f;
 
+        // Referensi internal
+        private BulletPool _bulletPool;
+        private PlayerVitals _vitals;
+        private bool _isDead = false;
+
+        private void Awake()
+        {
+            // Karena kita pakai RequireComponent, BulletPool pasti ditemukan
+            _bulletPool = GetComponent<BulletPool>();
+
+            // Sabuk pengaman kematian
+            _vitals = GetComponentInParent<PlayerVitals>();
+            if (_vitals != null)
+            {
+                _vitals.OnHealthChanged += CheckDeath;
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (_vitals != null)
+            {
+                _vitals.OnHealthChanged -= CheckDeath;
+            }
+        }
+
+        private void CheckDeath(float currentHealth, float maxHealth)
+        {
+            if (currentHealth <= 0)
+            {
+                _isDead = true;
+                this.enabled = false;
+            }
+        }
+
         private void Update()
         {
-            // Menggunakan klik kiri mouse (atau tombol lain) untuk menembak
+            if (_isDead) return;
+
             if (Mouse.current != null && Mouse.current.leftButton.isPressed)
             {
                 if (Time.time >= _nextFireTime)
@@ -30,8 +66,11 @@ namespace EscapeDays.Player
 
         private void Shoot()
         {
-            // Menciptakan kloningan peluru di posisi dan rotasi ujung laras senjata
-            Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
+            // ALIH-ALIH MENGGUNAKAN INSTANTIATE, KITA MINTA DARI GUDANG
+            if (_bulletPool != null)
+            {
+                _bulletPool.GetBullet(_firePoint.position, _firePoint.rotation);
+            }
         }
     }
 }

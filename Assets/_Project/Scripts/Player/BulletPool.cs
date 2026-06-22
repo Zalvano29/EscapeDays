@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem; // Wajib ditambahkan untuk sistem baru
 
 namespace EscapeDays.Player
 {
@@ -9,12 +8,12 @@ namespace EscapeDays.Player
         [Header("Pengaturan Gudang")]
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private int _poolSize = 20;
-        [SerializeField] private Transform _firePoint;
 
         private Queue<GameObject> _bulletPool = new Queue<GameObject>();
 
         private void Start()
         {
+            // Membangun antrean peluru saat game dimulai (Pre-allocation)
             for (int i = 0; i < _poolSize; i++)
             {
                 GameObject bullet = Instantiate(_bulletPrefab);
@@ -23,24 +22,21 @@ namespace EscapeDays.Player
             }
         }
 
-        private void Update()
+        // Fungsi publik ini yang akan dipanggil oleh senjata saat mau menembak
+        public GameObject GetBullet(Vector3 position, Quaternion rotation)
         {
-            // Menggunakan sintaks modern: Mengecek apakah mouse ada, lalu mendeteksi klik kiri
-            if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
-            {
-                Shoot();
-            }
-        }
-
-        private void Shoot()
-        {
+            // Ambil peluru dari antrean terdepan
             GameObject bulletToShoot = _bulletPool.Dequeue();
 
-            bulletToShoot.transform.position = _firePoint.position;
-            bulletToShoot.transform.rotation = _firePoint.rotation;
+            // Posisikan dan aktifkan
+            bulletToShoot.transform.position = position;
+            bulletToShoot.transform.rotation = rotation;
             bulletToShoot.SetActive(true);
 
+            // Masukkan kembali peluru tersebut ke antrean paling belakang (Circular Queue)
             _bulletPool.Enqueue(bulletToShoot);
+
+            return bulletToShoot;
         }
     }
 }

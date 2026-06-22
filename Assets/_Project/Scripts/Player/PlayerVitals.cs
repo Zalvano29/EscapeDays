@@ -3,10 +3,6 @@ using System;
 
 namespace EscapeDays.Player
 {
-    /// <summary>
-    /// Mengatur status hidup pemain (Darah dan Lapar).
-    /// Berjalan independen dari sistem pergerakan.
-    /// </summary>
     public class PlayerVitals : MonoBehaviour
     {
         [Header("Health Settings")]
@@ -15,17 +11,24 @@ namespace EscapeDays.Player
 
         [Header("Hunger Settings")]
         [SerializeField] private float _maxHunger = 100f;
-        [Tooltip("Berapa banyak rasa lapar berkurang setiap detiknya")]
         [SerializeField] private float _hungerDepletionRate = 2f;
         [SerializeField] private float _currentHunger;
 
-        // Event (Action) agar UI bisa bereaksi tanpa terikat langsung (Decoupling)
+        [Header("Referensi Sistem Pengendali")]
+        [Tooltip("Skrip untuk berjalan")]
+        [SerializeField] private PlayerMovementController _movementScript;
+
+        [Tooltip("Skrip untuk memutar tubuh/mouse")]
+        [SerializeField] private PlayerRotationController _rotationScript;
+
+        [Tooltip("Skrip untuk menembak")]
+        [SerializeField] private PlayerShootingController _shootingScript;
+
         public event Action<float, float> OnHealthChanged;
         public event Action<float, float> OnHungerChanged;
 
         private void Awake()
         {
-            // Memastikan darah dan rasa lapar penuh saat game dimulai
             _currentHealth = _maxHealth;
             _currentHunger = _maxHunger;
         }
@@ -37,25 +40,14 @@ namespace EscapeDays.Player
 
         private void HandleHunger()
         {
-            // Jika pemain belum kelaparan total
             if (_currentHunger > 0)
             {
-                // Mengurangi rasa lapar berdasarkan waktu dunia nyata (bukan frame)
                 _currentHunger -= _hungerDepletionRate * Time.deltaTime;
-
-                // Mencegah nilai turun di bawah 0
                 _currentHunger = Mathf.Max(_currentHunger, 0f);
-
-                // Memicu event untuk memberi tahu UI (jika UI sudah ada)
                 OnHungerChanged?.Invoke(_currentHunger, _maxHunger);
-            }
-            else
-            {
-                // Implementasi masa depan: Jika lapar = 0, darah mulai berkurang perlahan
             }
         }
 
-        // Metode publik yang bisa dipanggil oleh musuh atau jebakan nanti
         public void TakeDamage(float amount)
         {
             _currentHealth -= amount;
@@ -71,8 +63,21 @@ namespace EscapeDays.Player
 
         private void Die()
         {
-            Debug.Log("[PlayerVitals] Pemain telah mati!");
-            // Logika Game Over akan disambungkan ke sini nanti
+            // 1. Matikan kaki (Berjalan)
+            if (_movementScript != null) _movementScript.enabled = false;
+
+            // 2. Matikan leher/mata (Rotasi)
+            if (_rotationScript != null) _rotationScript.enabled = false;
+
+            // 3. Matikan jari (Menembak)
+            if (_shootingScript != null) _shootingScript.enabled = false;
+
+            // 4. Rem darurat fisika
+            if (TryGetComponent(out Rigidbody2D rb))
+            {
+                rb.linearVelocity = Vector2.zero;
+                rb.angularVelocity = 0f;
+            }
         }
     }
 }
