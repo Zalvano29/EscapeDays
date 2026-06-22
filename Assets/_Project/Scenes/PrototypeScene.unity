@@ -132,12 +132,12 @@ GameObject:
   - component: {fileID: 45657253}
   - component: {fileID: 45657254}
   - component: {fileID: 45657255}
-  - component: {fileID: 45657256}
   - component: {fileID: 45657257}
   - component: {fileID: 45657259}
   - component: {fileID: 45657258}
   - component: {fileID: 45657260}
   - component: {fileID: 45657261}
+  - component: {fileID: 45657262}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -268,24 +268,6 @@ MonoBehaviour:
   _movementScript: {fileID: 45657253}
   _rotationScript: {fileID: 45657258}
   _shootingScript: {fileID: 45657257}
---- !u!114 &45657256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45657249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0eda3018446394468a1a2f58f9cd746, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EscapeDays.Player.PlayerCombatController
-  _attackPoint: {fileID: 2112314663}
-  _attackRange: 0.75
-  _attackDamage: 20
-  _enemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &45657257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,7 +281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EscapeDays.Player.PlayerShootingController
   _firePoint: {fileID: 987698624}
-  _bulletPrefab: {fileID: 7883212044061504993, guid: f1220c67258618340adce6897b2418ce, type: 3}
   _fireRate: 0.2
 --- !u!114 &45657258
 MonoBehaviour:
@@ -359,7 +340,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EscapeDays.Player.BulletPool
   _bulletPrefab: {fileID: 7883212044061504993, guid: f1220c67258618340adce6897b2418ce, type: 3}
   _poolSize: 20
-  _firePoint: {fileID: 987698624}
 --- !u!114 &45657261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,6 +359,26 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _playerMovementScript: {fileID: 45657253}
+--- !u!114 &45657262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45657249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c3cba7b36335a47923f0c193eb9ad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EscapeDays.Player.PlayerMeleeAttack
+  _meleePoint: {fileID: 2112314663}
+  _attackRadius: 0.75
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _meleeDamage: 15
+  _knockbackForce: 15
+  _attackCooldown: 0.5
 --- !u!1 &379920113
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,7 +795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EscapeDays.Enemy.EnemyMeleeAttack
   _meleeDamage: 15
-  _attackCooldown: 1.2
+  _attackCooldown: 0.5
 --- !u!1 &656030587
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,6 +2679,8 @@ MonoBehaviour:
   _maxHealth: 50
   _spriteRenderer: {fileID: 1070381982}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
+  _rb: {fileID: 1070381985}
+  _movementScript: {fileID: 1070381987}
 --- !u!61 &1070381981
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2813,7 +2815,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 5
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

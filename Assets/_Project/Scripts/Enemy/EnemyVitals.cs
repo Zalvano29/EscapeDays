@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-// Namespace ini harus cocok dengan yang dipanggil oleh peluru sebelumnya
 namespace EscapeDays.Enemy
 {
     public class EnemyVitals : MonoBehaviour
@@ -10,53 +9,79 @@ namespace EscapeDays.Enemy
         [SerializeField] private float _maxHealth = 30f;
         private float _currentHealth;
 
-        [Header("Efek Visual")]
+        [Header("Efek Visual & Fisika")]
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private Color _hitColor = Color.red;
+
+        [Tooltip("Wajib: Rigidbody2D musuh (Pastikan Dynamic & punya Drag)")]
+        [SerializeField] private Rigidbody2D _rb;
+
+        [Tooltip("Wajib: Skrip pengejaran musuh (misal AIPath atau EnemyMovement) agar dimatikan saat terpental")]
+        [SerializeField] private MonoBehaviour _movementScript;
+
         private Color _originalColor;
 
-        private void Start()
+        private void Awake()
         {
-            // Saat lahir, nyawa musuh penuh
             _currentHealth = _maxHealth;
-
-            // Simpan warna asli musuh (biasanya putih) agar bisa dikembalikan setelah berkedip
-            if (_spriteRenderer != null)
-            {
-                _originalColor = _spriteRenderer.color;
-            }
+            if (_spriteRenderer != null) _originalColor = _spriteRenderer.color;
+            if (_rb == null) _rb = GetComponent<Rigidbody2D>();
         }
 
-        // Fungsi ini dipanggil oleh skrip Bullet.cs saat peluru menabrak
-        public void TakeDamage(float damageAmount)
+        // Fungsi ini kita "Upgrade" agar bisa menerima parameter knockback opsional
+        public void TakeDamage(float damageAmount, float knockbackForce = 0f, Transform attackerTransform = null)
         {
             _currentHealth -= damageAmount;
 
-            // Memicu efek kedip merah saat terkena *damage*
-            if (_spriteRenderer != null)
+            if (_spriteRenderer != null) StartCoroutine(FlashHitEffect());
+
+            // Jika serangan ini memiliki tenaga knockback (Melee), jalankan efek pentalan
+            if (knockbackForce > 0f && attackerTransform != null && _currentHealth > 0)
             {
-                StartCoroutine(FlashHitEffect());
+                StartCoroutine(KnockbackRoutine(knockbackForce, attackerTransform));
             }
 
-            // Cek apakah musuh sudah mati
             if (_currentHealth <= 0)
             {
                 Die();
             }
         }
 
-        // Coroutine untuk mengatur waktu kedipan visual
         private IEnumerator FlashHitEffect()
         {
-            _spriteRenderer.color = _hitColor; // Ubah ke warna merah
-            yield return new WaitForSeconds(0.1f); // Tunggu 0.1 detik
-            _spriteRenderer.color = _originalColor; // Kembalikan ke warna asli
+            _spriteRenderer.color = _hitColor;
+            yield return new WaitForSeconds(0.1f);
+            _spriteRenderer.color = _originalColor;
+        }
+
+        private IEnumerator KnockbackRoutine(float force, Transform attacker)
+        {
+            // 1. Matikan skrip jalan musuh (mencegah musuh melawan efek pentalan)
+            if (_movementScript != null) _movementScript.enabled = false;
+
+            // 2. Hitung arah pentalan (Menjauh dari pemain)
+            Vector2 knockbackDirection = (transform.position - attacker.position).normalized;
+
+            // 3. Reset kecepatan saat ini lalu tembakkan daya pental
+            _rb.linearVelocity = Vector2.zero;
+            _rb.AddForce(knockbackDirection * force, ForceMode2D.Impulse);
+
+            // 4. Tunggu musuh mengudara selama 0.2 detik
+            yield return new WaitForSeconds(0.2f);
+
+            // 5. Kembalikan kendali jalan musuh
+            if (_movementScript != null && _currentHealth > 0)
+            {
+                _movementScript.enabled = true;
+            }
+            else
+            {
+                _rb.linearVelocity = Vector2.zero;
+            }
         }
 
         private void Die()
         {
-            // Untuk saat ini, musuh langsung kita hancurkan dari arena.
-            // Di masa depan, Anda bisa menambahkan efek ledakan, animasi mati, atau menjatuhkan item di sini.
             Destroy(gameObject);
         }
     }
