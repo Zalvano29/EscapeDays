@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 45657257}
   - component: {fileID: 45657259}
   - component: {fileID: 45657258}
+  - component: {fileID: 45657260}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -340,6 +341,21 @@ MonoBehaviour:
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &45657260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45657249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb788179dd379244acf20b226805720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EscapeDays.Player.BulletPool
+  _bulletPrefab: {fileID: 7883212044061504993, guid: f1220c67258618340adce6897b2418ce, type: 3}
+  _poolSize: 20
+  _firePoint: {fileID: 987698624}
 --- !u!1 &379920113
 GameObject:
   m_ObjectHideFlags: 0
