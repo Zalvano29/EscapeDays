@@ -8,6 +8,10 @@ namespace EscapeDays.Player
         [Header("Pengaturan Efek Visual")]
         [SerializeField] private Color _flashColor = Color.red;
         [SerializeField] private float _flashDuration = 0.1f;
+        
+        [Header("Referensi Visual")] // TAMBAHKAN INI
+        [Tooltip("Tarik objek VisualContainer ke sini")]
+        [SerializeField] private SpriteRenderer _sprite; // SEKARANG BISA DIISI DI INSPECTOR
 
         [Header("Pengaturan Fisika (Knockback)")]
         [SerializeField] private float _knockbackImpulse = 20f;
@@ -15,7 +19,6 @@ namespace EscapeDays.Player
         [SerializeField] private MonoBehaviour _playerMovementScript;
 
         private PlayerVitals _vitals;
-        private SpriteRenderer _sprite;
         private Rigidbody2D _rb;
         private Color _originalColor;
         private float _lastHealth = 100f;
@@ -24,7 +27,9 @@ namespace EscapeDays.Player
         {
             _vitals = GetComponent<PlayerVitals>();
             _rb = GetComponent<Rigidbody2D>();
-            _sprite = GetComponentInChildren<SpriteRenderer>();
+            
+            // HANYA cari otomatis jika di Inspector masih kosong
+            if (_sprite == null) _sprite = GetComponentInChildren<SpriteRenderer>();
 
             if (_sprite != null)
             {

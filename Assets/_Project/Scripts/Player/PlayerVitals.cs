@@ -24,13 +24,21 @@ namespace EscapeDays.Player
         [Tooltip("Skrip untuk menembak")]
         [SerializeField] private PlayerShootingController _shootingScript;
 
+        [Header("Referensi Visual")]
+        [Tooltip("Tarik objek VisualContainer ke sini")]
+        [SerializeField] private Animator _animator;
+
         public event Action<float, float> OnHealthChanged;
         public event Action<float, float> OnHungerChanged;
+        private bool _isDead = false;
 
         private void Awake()
         {
             _currentHealth = _maxHealth;
             _currentHunger = _maxHunger;
+
+            // Auto-cari Animator di anak objek (VisualContainer) jika lupa ditarik
+            if (_animator == null) _animator = GetComponentInChildren<Animator>();
         }
 
         private void Update()
@@ -50,6 +58,9 @@ namespace EscapeDays.Player
 
         public void TakeDamage(float amount)
         {
+            // GEMBOK PENGAMAN: Jika sudah mati, abaikan semua damage/serangan masuk!
+            if (_isDead) return; 
+
             _currentHealth -= amount;
             _currentHealth = Mathf.Max(_currentHealth, 0f);
 
@@ -57,26 +68,29 @@ namespace EscapeDays.Player
 
             if (_currentHealth <= 0)
             {
+                _isDead = true; // Tandai bahwa pemain sudah mati
                 Die();
             }
         }
 
         private void Die()
         {
-            // 1. Matikan kaki (Berjalan)
+            // 1. Matikan komponen agar pemain tidak bisa bergerak/menembak
             if (_movementScript != null) _movementScript.enabled = false;
-
-            // 2. Matikan leher/mata (Rotasi)
             if (_rotationScript != null) _rotationScript.enabled = false;
-
-            // 3. Matikan jari (Menembak)
             if (_shootingScript != null) _shootingScript.enabled = false;
 
-            // 4. Rem darurat fisika
+            // 2. Rem darurat fisika
             if (TryGetComponent(out Rigidbody2D rb))
             {
                 rb.linearVelocity = Vector2.zero;
-                rb.angularVelocity = 0f;
+                rb.angularVelocity = 0f; 
+            }
+
+            // 3. MAINKAN ANIMASI KEMATIAN
+            if (_animator != null)
+            {
+                _animator.SetTrigger("Die");
             }
         }
     }

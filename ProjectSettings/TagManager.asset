@@ -44,6 +44,9 @@ TagManager:
   - name: Characters
     uniqueID: 206913631
     locked: 0
+  - name: Weapons
+    uniqueID: 3506362691
+    locked: 0
   m_RenderingLayers:
   - Default
   m_MigratedRenderPipelines: []
