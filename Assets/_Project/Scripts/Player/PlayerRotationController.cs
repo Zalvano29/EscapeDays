@@ -1,64 +1,68 @@
 using UnityEngine;
-using UnityEngine.InputSystem; // Wajib untuk New Input System
+using UnityEngine.InputSystem;
 
 namespace EscapeDays.Player
 {
-    [RequireComponent(typeof(PlayerInput))] // Memastikan objek punya komponen input
     public class PlayerRotationController : MonoBehaviour
     {
-        [Header("Aiming Settings")]
-        [Tooltip("Wajib ditarik via Inspector")]
-        [SerializeField] private Camera _mainCamera;
+        [Header("Referensi Visual")]
+        [Tooltip("Tarik komponen Animator pemain ke sini")]
+        [SerializeField] private Animator _animator;
+        [Tooltip("Tarik komponen SpriteRenderer pemain ke sini")]
+        [SerializeField] private SpriteRenderer _spriteRenderer;
 
-        [Tooltip("Container visual karakter (agar visual bisa diputar tanpa memutar Collider utama)")]
-        [SerializeField] private Transform _visualContainer;
-
-        private Vector2 _mouseScreenPosition;
+        private Camera _mainCamera;
 
         private void Awake()
         {
-            // Memastikan referensi kamera terisi jika lupa menariknya di Inspector
-            if (_mainCamera == null) _mainCamera = Camera.main;
+            _mainCamera = Camera.main;
+            
+            // Auto-wiring jika Anda lupa memasukkan di Inspector
+            if (_animator == null) _animator = GetComponentInChildren<Animator>();
+            if (_spriteRenderer == null) _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            
+            // FASE 1: Kunci mati rotasi fisik pemain agar tidak pernah berputar lagi
+            transform.rotation = Quaternion.identity; 
         }
 
         private void Update()
         {
-            ReadMouseInput();
+            HandleVisualDirection();
         }
 
-        private void FixedUpdate()
+        private void HandleVisualDirection()
         {
-            HandleRotation();
-        }
+            if (Mouse.current == null || _mainCamera == null) return;
 
-        private void ReadMouseInput()
-        {
-            // Membaca posisi mouse di layar (New Input System)
-            if (Mouse.current != null)
+            // 1. Ubah koordinat layar mouse menjadi koordinat dunia game
+            Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
+            Vector3 mouseWorldPosition = _mainCamera.ScreenToWorldPoint(mouseScreenPosition);
+
+            // 2. Dapatkan vektor arah (dari pemain menuju mouse)
+            Vector2 direction = (mouseWorldPosition - transform.position).normalized;
+
+            // FASE 2: Trik Mirroring (FlipX)
+            // Jika arah mouse berada di sebelah kiri (X negatif), balik gambarnya ke kiri
+            if (direction.x < -0.01f)
             {
-                _mouseScreenPosition = Mouse.current.position.ReadValue();
+                _spriteRenderer.flipX = true;
             }
-        }
+            // Jika arah mouse berada di sebelah kanan (X positif), kembalikan gambar ke kanan
+            else if (direction.x > 0.01f)
+            {
+                _spriteRenderer.flipX = false;
+            }
 
-        private void HandleRotation()
-        {
-            if (_mainCamera == null || _visualContainer == null) return;
-
-            // 1. Mengubah posisi mouse (Layar) menjadi koordinat dunia (World)
-            Vector3 mouseWorldPosition = _mainCamera.ScreenToWorldPoint(new Vector3(_mouseScreenPosition.x, _mouseScreenPosition.y, 0f));
-            mouseWorldPosition.z = 0f; // Memastikan kita tetap di bidang 2D
-
-            // 2. Menghitung arah vector dari karakter ke mouse
-            Vector3 lookDirection = mouseWorldPosition - transform.position;
-
-            // 3. Menghitung sudut (dalam Radian, lalu ke Derajat) menggunakan Atan2
-            // Atan2 mengembalikan sudut antara sumbu X dan vector arah.
-            // Di Unity Top-Down, visual default biasanya menghadap ke Kanan (X) atau Atas (Y).
-            float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-
-            // 4. Menerapkan rotasi ke Visual Container pada sumbu Z
-            // Opsional: Anda mungkin butuh offset (misalnya angle - 90f) tergantung orientasi sprite asli.
-            _visualContainer.rotation = Quaternion.Euler(0f, 0f, angle);
+            // 3. Kirim data ke Animator (Fase 3)
+            if (_animator != null)
+            {
+                // Kita menggunakan Mathf.Abs (Nilai Mutlak) pada sumbu X.
+                // Kenapa? Karena animasi Kiri dan Kanan memakai animasi yang sama (Idle_Side).
+                // Animator hanya perlu tahu "seberapa kuat tarikan ke sumbu X horizontal", 
+                // urusan menghadap Kiri/Kanan sudah diselesaikan oleh FlipX di atas.
+                _animator.SetFloat("MouseX", Mathf.Abs(direction.x));
+                _animator.SetFloat("MouseY", direction.y);
+            }
         }
     }
 }
