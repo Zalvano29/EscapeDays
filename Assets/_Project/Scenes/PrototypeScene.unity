@@ -249,7 +249,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.7, y: 1.5}
   m_EdgeRadius: 0
 --- !u!114 &45657255
 MonoBehaviour:
@@ -272,6 +272,7 @@ MonoBehaviour:
   _rotationScript: {fileID: 45657258}
   _shootingScript: {fileID: 45657257}
   _animator: {fileID: 1434839402}
+  _destroyDelay: 2
 --- !u!114 &45657257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2820,7 +2821,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EscapeDays.Enemy.EnemyVitals
   _maxHealth: 50
-  _spriteRenderer: {fileID: 0}
+  _destroyDelay: 1.5
+  _spriteRenderer: {fileID: 1358589767}
+  _animator: {fileID: 1358589766}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
   _rb: {fileID: 1070381985}
   _movementScript: {fileID: 1070381987}
@@ -2868,7 +2871,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.7, y: 1.5}
   m_EdgeRadius: 0
 --- !u!4 &1070381983
 Transform:
@@ -2953,7 +2956,7 @@ MonoBehaviour:
   repathRateCompatibility: NaN
   canSearchCompability: 0
   orientation: 1
-  enableRotation: 1
+  enableRotation: 0
   autoRepath:
     mode: 2
     interval: 0.5
@@ -3009,6 +3012,7 @@ GameObject:
   - component: {fileID: 1358589765}
   - component: {fileID: 1358589767}
   - component: {fileID: 1358589766}
+  - component: {fileID: 1358589768}
   m_Layer: 6
   m_Name: VisualContainer
   m_TagString: Untagged
@@ -3027,7 +3031,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1070381983}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3041,7 +3045,7 @@ Animator:
   m_GameObject: {fileID: 1358589764}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 54e5284c2b5d3bd4881a8c650579b3c6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3102,7 +3106,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2756699986305231383, guid: 405110abe3ec4d246ae9a8f7996965ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3112,6 +3116,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1358589768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358589764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d172e526108e9b46b9f2d35329b942a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EscapeDays.Enemy.EnemyAnimationController
+  _animator: {fileID: 1358589766}
+  _spriteRenderer: {fileID: 1358589767}
 --- !u!1 &1434839399
 GameObject:
   m_ObjectHideFlags: 0
