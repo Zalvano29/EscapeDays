@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: f7337ce8a2339c045a1d4d3361777992
+=======
+<<<<<<<< HEAD:Assets/Map.meta
+guid: 5acba7cb017714b419d25102fb386083
+========
+guid: 3b203a913914f7b46b1c24b2c21d757b
+>>>>>>>> husnaya:Assets/_Recovery.meta
+>>>>>>> husnaya
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
