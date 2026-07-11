@@ -28,6 +28,10 @@ namespace EscapeDays.Player
         [Tooltip("Tarik objek VisualContainer ke sini")]
         [SerializeField] private Animator _animator;
 
+        [Header("Pengaturan Kematian")]
+        [Tooltip("Berapa detik jasad dibiarkan sebelum objeknya lenyap")]
+        [SerializeField] private float _destroyDelay = 2f;
+
         public event Action<float, float> OnHealthChanged;
         public event Action<float, float> OnHungerChanged;
         private bool _isDead = false;
@@ -75,23 +79,26 @@ namespace EscapeDays.Player
 
         private void Die()
         {
-            // 1. Matikan komponen agar pemain tidak bisa bergerak/menembak
             if (_movementScript != null) _movementScript.enabled = false;
             if (_rotationScript != null) _rotationScript.enabled = false;
             if (_shootingScript != null) _shootingScript.enabled = false;
 
-            // 2. Rem darurat fisika
             if (TryGetComponent(out Rigidbody2D rb))
             {
                 rb.linearVelocity = Vector2.zero;
                 rb.angularVelocity = 0f; 
+                
+                // Opsional tapi disarankan: Matikan simulasi fisik agar mayat tidak bisa didorong-dorong
+                rb.simulated = false; 
             }
 
-            // 3. MAINKAN ANIMASI KEMATIAN
             if (_animator != null)
             {
                 _animator.SetTrigger("Die");
             }
+
+            // TAMBAHAN BARU: Hancurkan objek pemain setelah animasi selesai (misal 2 detik)
+            Destroy(gameObject, _destroyDelay);
         }
     }
 }

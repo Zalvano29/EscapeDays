@@ -8,9 +8,17 @@ namespace EscapeDays.Enemy
         [Header("Atribut Nyawa")]
         [SerializeField] private float _maxHealth = 30f;
         private float _currentHealth;
+        private bool _isDead = false; // GEMBOK: Mencegah efek terpanggil berkali-kali
+
+        [Header("Pengaturan Kematian")]
+        [Tooltip("Waktu tunggu setelah animasi mati sebelum musuh lenyap")]
+        [SerializeField] private float _destroyDelay = 1.5f;
 
         [Header("Efek Visual & Fisika")]
+        [Tooltip("Tarik objek VisualContainer ke sini")]
         [SerializeField] private SpriteRenderer _spriteRenderer;
+        [Tooltip("Tarik objek VisualContainer ke sini")]
+        [SerializeField] private Animator _animator; // TAMBAHAN: Referensi Animator
         [SerializeField] private Color _hitColor = Color.red;
 
         [Tooltip("Wajib: Rigidbody2D musuh (Pastikan Dynamic & punya Drag)")]
@@ -26,16 +34,20 @@ namespace EscapeDays.Enemy
             _currentHealth = _maxHealth;
             if (_spriteRenderer != null) _originalColor = _spriteRenderer.color;
             if (_rb == null) _rb = GetComponent<Rigidbody2D>();
+            
+            // Cari otomatis jika lupa ditarik di Inspector
+            if (_animator == null) _animator = GetComponentInChildren<Animator>();
         }
 
-        // Fungsi ini kita "Upgrade" agar bisa menerima parameter knockback opsional
         public void TakeDamage(float damageAmount, float knockbackForce = 0f, Transform attackerTransform = null)
         {
+            // Jika sudah mati, abaikan semua peluru/serangan yang masuk
+            if (_isDead) return; 
+
             _currentHealth -= damageAmount;
 
             if (_spriteRenderer != null) StartCoroutine(FlashHitEffect());
 
-            // Jika serangan ini memiliki tenaga knockback (Melee), jalankan efek pentalan
             if (knockbackForce > 0f && attackerTransform != null && _currentHealth > 0)
             {
                 StartCoroutine(KnockbackRoutine(knockbackForce, attackerTransform));
@@ -51,26 +63,24 @@ namespace EscapeDays.Enemy
         {
             _spriteRenderer.color = _hitColor;
             yield return new WaitForSeconds(0.1f);
-            _spriteRenderer.color = _originalColor;
+            
+            // Kembalikan warna hanya jika musuh belum dihancurkan
+            if (_spriteRenderer != null) _spriteRenderer.color = _originalColor;
         }
 
         private IEnumerator KnockbackRoutine(float force, Transform attacker)
         {
-            // 1. Matikan skrip jalan musuh (mencegah musuh melawan efek pentalan)
             if (_movementScript != null) _movementScript.enabled = false;
 
-            // 2. Hitung arah pentalan (Menjauh dari pemain)
             Vector2 knockbackDirection = (transform.position - attacker.position).normalized;
 
-            // 3. Reset kecepatan saat ini lalu tembakkan daya pental
             _rb.linearVelocity = Vector2.zero;
             _rb.AddForce(knockbackDirection * force, ForceMode2D.Impulse);
 
-            // 4. Tunggu musuh mengudara selama 0.2 detik
             yield return new WaitForSeconds(0.2f);
 
-            // 5. Kembalikan kendali jalan musuh
-            if (_movementScript != null && _currentHealth > 0)
+            // Cek _isDead juga di sini agar mayat tidak tiba-tiba mengejar pemain
+            if (_movementScript != null && _currentHealth > 0 && !_isDead)
             {
                 _movementScript.enabled = true;
             }
@@ -82,7 +92,27 @@ namespace EscapeDays.Enemy
 
         private void Die()
         {
-            Destroy(gameObject);
+            _isDead = true;
+
+            // 1. Matikan skrip jalan musuh
+            if (_movementScript != null) _movementScript.enabled = false;
+
+            // 2. Rem total fisik musuh dan tembus pandangkan badannya
+            if (_rb != null)
+            {
+                _rb.linearVelocity = Vector2.zero;
+                _rb.angularVelocity = 0f;
+                _rb.simulated = false; // Peluru dan pemain sekarang bisa melewati jasadnya!
+            }
+
+            // 3. Mainkan animasi mati
+            if (_animator != null)
+            {
+                _animator.SetTrigger("Die");
+            }
+
+            // 4. Lenyapkan objek setelah jeda waktu habis
+            Destroy(gameObject, _destroyDelay);
         }
     }
 }
