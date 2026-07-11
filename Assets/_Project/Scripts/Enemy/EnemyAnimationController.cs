@@ -1,4 +1,5 @@
 using UnityEngine;
+using Pathfinding; // Tambahkan namespace A* Pathfinding
 
 namespace EscapeDays.Enemy
 {
@@ -7,24 +8,21 @@ namespace EscapeDays.Enemy
         [Header("Referensi Komponen")]
         [SerializeField] private Animator _animator;
         [SerializeField] private SpriteRenderer _spriteRenderer;
-
-        private Vector3 _lastPosition;
+        
+        private IAstarAI _ai;
 
         private void Awake()
         {
             if (_animator == null) _animator = GetComponentInChildren<Animator>();
             if (_spriteRenderer == null) _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             
+            // Ambil referensi komponen AI secara paksa di seluruh bagian musuh
+            _ai = transform.root.GetComponentInChildren<IAstarAI>();
+
             transform.rotation = Quaternion.identity; 
         }
 
-        private void OnEnable()
-        {
-            _lastPosition = transform.position;
-        }
-
-        // PERUBAHAN UTAMA: Gunakan FixedUpdate agar seirama dengan pergerakan AI/Fisika
-        private void FixedUpdate()
+        private void Update()
         {
             HandleEnemyAnimation();
         }
@@ -33,20 +31,25 @@ namespace EscapeDays.Enemy
         {
             if (_animator == null) return;
 
-            Vector3 positionDelta = transform.position - _lastPosition;
-            _lastPosition = transform.position;
+            Vector3 currentVelocity = Vector3.zero;
+            Vector3 desiredVelocity = Vector3.zero;
 
-            // PERUBAHAN KEDUA: Gunakan fixedDeltaTime
-            Vector3 currentVelocity = positionDelta / Time.fixedDeltaTime;
+            // Gunakan velocity dari AI jika tersedia
+            if (_ai != null)
+            {
+                currentVelocity = _ai.velocity;
+                // desiredVelocity adalah arah yang DIINGINKAN AI, jauh lebih mulus untuk animasi
+                desiredVelocity = _ai.desiredVelocity; 
+            }
+
             float currentSpeed = currentVelocity.sqrMagnitude;
-
             _animator.SetFloat("Speed", currentSpeed);
 
-            // PERUBAHAN KETIGA: Naikkan sedikit batas toleransinya (threshold) menjadi 0.1f
-            // Untuk mengabaikan getaran mikroskopis saat musuh sedang bertabrakan/berdempetan
-            if (currentSpeed > 0.1f)
+            // Gunakan desiredVelocity untuk menentukan arah hadap (MoveX, MoveY)
+            // Ini mencegah animasi kaku/bergetar saat AI sedikit tersangkut
+            if (desiredVelocity.sqrMagnitude > 0.01f)
             {
-                Vector2 moveDirection = currentVelocity.normalized;
+                Vector2 moveDirection = desiredVelocity.normalized;
 
                 _animator.SetFloat("MoveX", Mathf.Abs(moveDirection.x));
                 _animator.SetFloat("MoveY", moveDirection.y);

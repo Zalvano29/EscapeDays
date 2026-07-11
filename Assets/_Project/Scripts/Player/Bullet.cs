@@ -41,14 +41,32 @@ namespace EscapeDays.Player
         {
             if (collision.gameObject.layer == _enemyLayerIndex)
             {
-                if (collision.gameObject.TryGetComponent(out Enemy.EnemyVitals enemyVitals))
+                Enemy.EnemyVitals enemyVitals = collision.collider.GetComponentInParent<Enemy.EnemyVitals>();
+                if (enemyVitals != null)
                 {
                     enemyVitals.TakeDamage(_damage);
                 }
             }
 
-            // Peluru tertidur saat menabrak apa pun
+            // Peluru tertidur saat menabrak apa pun (fisik)
             gameObject.SetActive(false);
+        }
+
+        // TAMBAHAN: Tangani juga jika musuh menggunakan Collider "Is Trigger"
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.layer == _enemyLayerIndex)
+            {
+                Enemy.EnemyVitals enemyVitals = collision.GetComponentInParent<Enemy.EnemyVitals>();
+                if (enemyVitals != null)
+                {
+                    enemyVitals.TakeDamage(_damage);
+                }
+                
+                // Peluru tertidur saat menabrak musuh (trigger)
+                gameObject.SetActive(false);
+            }
+            // Catatan: Jika menabrak trigger SELAIN musuh (misal zona), peluru dibiarkan menembus
         }
     }
 }

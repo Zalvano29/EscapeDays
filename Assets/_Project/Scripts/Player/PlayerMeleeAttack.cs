@@ -61,7 +61,10 @@ namespace EscapeDays.Player
             // 2. Beri efek pada masing-masing musuh yang terkena
             foreach (Collider2D enemy in hitEnemies)
             {
-                if (enemy.TryGetComponent(out Enemy.EnemyVitals enemyVitals))
+                // Gunakan GetComponentInParent agar bisa mendeteksi komponen nyawa
+                // meskipun yang dipukul adalah anak objeknya (VisualContainer / hitbox)
+                Enemy.EnemyVitals enemyVitals = enemy.GetComponentInParent<Enemy.EnemyVitals>();
+                if (enemyVitals != null)
                 {
                     // Kirim TIGA data: Jumlah Damage, Tenaga Pentalan, dan Posisi Pemain (sebagai pusat pentalan)
                     enemyVitals.TakeDamage(_meleeDamage, _knockbackForce, transform);
