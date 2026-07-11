@@ -46,25 +46,14 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-<<<<<<<< HEAD:Assets/_Project/Art/Animations/Walk_Up.anim
-    - {fileID: 3318292078485110421, guid: 3213f9ccdeb6bd4429678d9017c3389b, type: 3}
-    - {fileID: 2249348895162351908, guid: 3213f9ccdeb6bd4429678d9017c3389b, type: 3}
-    - {fileID: 9122659268432424201, guid: 3213f9ccdeb6bd4429678d9017c3389b, type: 3}
-    - {fileID: -6486544060076406109, guid: 3213f9ccdeb6bd4429678d9017c3389b, type: 3}
-========
     - {fileID: -2756699986305231383, guid: 405110abe3ec4d246ae9a8f7996965ad, type: 3}
     - {fileID: -7530142797673451586, guid: 405110abe3ec4d246ae9a8f7996965ad, type: 3}
->>>>>>>> husnaya:Assets/_Project/Art/Animations/Enemy_Idle_Down.anim
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-<<<<<<<< HEAD:Assets/_Project/Art/Animations/Walk_Up.anim
-    m_StopTime: 0.59999996
-========
     m_StopTime: 0.26666668
->>>>>>>> husnaya:Assets/_Project/Art/Animations/Enemy_Idle_Down.anim
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
