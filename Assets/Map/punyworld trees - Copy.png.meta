@@ -1,0 +1,975 @@
+fileFormatVersion: 2
+guid: 54fecd623c038404aa311b5a73455a96
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3994211652456223361
+    second: punyworld trees - Copy_0
+  - first:
+      213: 2334750748130482867
+    second: punyworld trees - Copy_1
+  - first:
+      213: 8429947058779285823
+    second: punyworld trees - Copy_2
+  - first:
+      213: -8983209455487896119
+    second: punyworld trees - Copy_3
+  - first:
+      213: 7332271740128251598
+    second: punyworld trees - Copy_4
+  - first:
+      213: 7748233155409881534
+    second: punyworld trees - Copy_5
+  - first:
+      213: 3830534976721876226
+    second: punyworld trees - Copy_6
+  - first:
+      213: 8829667038671809254
+    second: punyworld trees - Copy_7
+  - first:
+      213: 8190074554224255425
+    second: punyworld trees - Copy_8
+  - first:
+      213: -3301033642062567095
+    second: punyworld trees - Copy_9
+  - first:
+      213: 415329593469127029
+    second: punyworld trees - Copy_10
+  - first:
+      213: -5134690989462267813
+    second: punyworld trees - Copy_11
+  - first:
+      213: 914560915658725818
+    second: punyworld trees - Copy_12
+  - first:
+      213: -1062361324899901843
+    second: punyworld trees - Copy_13
+  - first:
+      213: -7671487074473994750
+    second: punyworld trees - Copy_14
+  - first:
+      213: 1018257465451560547
+    second: punyworld trees - Copy_15
+  - first:
+      213: -1084295067599830068
+    second: punyworld trees - Copy_16
+  - first:
+      213: 1397206272294540798
+    second: punyworld trees - Copy_17
+  - first:
+      213: -1448391263841036993
+    second: punyworld trees - Copy_18
+  - first:
+      213: 4077440883168791478
+    second: punyworld trees - Copy_19
+  - first:
+      213: 4017722736242412562
+    second: punyworld trees - Copy_20
+  - first:
+      213: -8693948976002808348
+    second: punyworld trees - Copy_21
+  - first:
+      213: 4938523777884756406
+    second: punyworld trees - Copy_22
+  - first:
+      213: 2778253930823207094
+    second: punyworld trees - Copy_23
+  - first:
+      213: -8189789574275352360
+    second: punyworld trees - Copy_24
+  - first:
+      213: 6244245387186346644
+    second: punyworld trees - Copy_25
+  - first:
+      213: 8526922625443171089
+    second: punyworld trees - Copy_26
+  - first:
+      213: 7245047489819413552
+    second: punyworld trees - Copy_27
+  - first:
+      213: 5300238506508071735
+    second: punyworld trees - Copy_28
+  - first:
+      213: -7438741588867560279
+    second: punyworld trees - Copy_29
+  - first:
+      213: -3961279511854296567
+    second: punyworld trees - Copy_30
+  - first:
+      213: -4748166856445446179
+    second: punyworld trees - Copy_31
+  - first:
+      213: -3579442334080087238
+    second: punyworld trees - Copy_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: punyworld trees - Copy_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 623
+        width: 432
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7dee911aa5b198c0800000000000000
+      internalID: -3994211652456223361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 607
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ba15657f63b66020800000000000000
+      internalID: 2334750748130482867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_2
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 607
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3963e9af203df470800000000000000
+      internalID: 8429947058779285823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_3
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 447
+        width: 338
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c5b6b6689a355380800000000000000
+      internalID: -8983209455487896119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 607
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ececaf2bc4671c560800000000000000
+      internalID: 7332271740128251598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_5
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 609
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb92c11c001478b60800000000000000
+      internalID: 7748233155409881534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 591
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 205773b244bc82530800000000000000
+      internalID: 3830534976721876226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_7
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 593
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ea220dd367498a70800000000000000
+      internalID: 8829667038671809254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_8
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 591
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c1a0880a6df8a170800000000000000
+      internalID: 8190074554224255425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_9
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 591
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9492f35646f5032d0800000000000000
+      internalID: -3301033642062567095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_10
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 575
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5794f63901c83c500800000000000000
+      internalID: 415329593469127029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_11
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 577
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b58d3b5ffb9edb8b0800000000000000
+      internalID: -5134690989462267813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_12
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 575
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab95b47ae4c21bc00800000000000000
+      internalID: 914560915658725818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_13
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 575
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6e5a3ee00cb141f0800000000000000
+      internalID: -1062361324899901843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_14
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 559
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2061afaa627698590800000000000000
+      internalID: -7671487074473994750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_15
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 561
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36e312615c3912e00800000000000000
+      internalID: 1018257465451560547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_16
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 559
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc30100816fc3f0f0800000000000000
+      internalID: -1084295067599830068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_17
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 559
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef55012b3bfd36310800000000000000
+      internalID: 1397206272294540798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 527
+        width: 16
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f35d9f6c1d746ebe0800000000000000
+      internalID: -1448391263841036993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_19
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 545
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bb4ee941eaf59830800000000000000
+      internalID: 4077440883168791478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_20
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 529
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21c4db3ba81d1c730800000000000000
+      internalID: 4017722736242412562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_21
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 432
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e54bf50873e85780800000000000000
+      internalID: -8693948976002808348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_22
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 432
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b914a7e539298440800000000000000
+      internalID: 4938523777884756406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_23
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 432
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b8cc82fa375e8620800000000000000
+      internalID: 2778253930823207094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_24
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 432
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d8be1806c5085e80800000000000000
+      internalID: -8189789574275352360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_25
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 432
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49a1d91a81408a650800000000000000
+      internalID: 6244245387186346644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_26
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 432
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11b08c443f6b55670800000000000000
+      internalID: 8526922625443171089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_27
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 432
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03c858b5e449b8460800000000000000
+      internalID: 7245047489819413552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_28
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 432
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 733b24df6da3e8940800000000000000
+      internalID: 5300238506508071735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_29
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 432
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9accf93efe744c890800000000000000
+      internalID: -7438741588867560279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_30
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 432
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90254ef8545b609c0800000000000000
+      internalID: -3961279511854296567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_31
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 432
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd73943a66f1b1eb0800000000000000
+      internalID: -4748166856445446179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: punyworld trees - Copy_32
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 432
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3b492f6924435ec0800000000000000
+      internalID: -3579442334080087238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      punyworld trees - Copy_0: -3994211652456223361
+      punyworld trees - Copy_1: 2334750748130482867
+      punyworld trees - Copy_10: 415329593469127029
+      punyworld trees - Copy_11: -5134690989462267813
+      punyworld trees - Copy_12: 914560915658725818
+      punyworld trees - Copy_13: -1062361324899901843
+      punyworld trees - Copy_14: -7671487074473994750
+      punyworld trees - Copy_15: 1018257465451560547
+      punyworld trees - Copy_16: -1084295067599830068
+      punyworld trees - Copy_17: 1397206272294540798
+      punyworld trees - Copy_18: -1448391263841036993
+      punyworld trees - Copy_19: 4077440883168791478
+      punyworld trees - Copy_2: 8429947058779285823
+      punyworld trees - Copy_20: 4017722736242412562
+      punyworld trees - Copy_21: -8693948976002808348
+      punyworld trees - Copy_22: 4938523777884756406
+      punyworld trees - Copy_23: 2778253930823207094
+      punyworld trees - Copy_24: -8189789574275352360
+      punyworld trees - Copy_25: 6244245387186346644
+      punyworld trees - Copy_26: 8526922625443171089
+      punyworld trees - Copy_27: 7245047489819413552
+      punyworld trees - Copy_28: 5300238506508071735
+      punyworld trees - Copy_29: -7438741588867560279
+      punyworld trees - Copy_3: -8983209455487896119
+      punyworld trees - Copy_30: -3961279511854296567
+      punyworld trees - Copy_31: -4748166856445446179
+      punyworld trees - Copy_32: -3579442334080087238
+      punyworld trees - Copy_4: 7332271740128251598
+      punyworld trees - Copy_5: 7748233155409881534
+      punyworld trees - Copy_6: 3830534976721876226
+      punyworld trees - Copy_7: 8829667038671809254
+      punyworld trees - Copy_8: 8190074554224255425
+      punyworld trees - Copy_9: -3301033642062567095
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
