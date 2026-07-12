@@ -14,6 +14,12 @@ namespace EscapeDays.Player
         [SerializeField] private float _hungerDepletionRate = 2f;
         [SerializeField] private float _currentHunger;
 
+        [Header("Thirst Settings")] // TAMBAHAN THIRST
+        [SerializeField] private float _maxThirst = 100f;
+        [Tooltip("Laju pengurangan rasa haus per detik")]
+        [SerializeField] private float _thirstDepletionRate = 3f; // Biasanya haus berkurang sedikit lebih cepat
+        [SerializeField] private float _currentThirst;
+
         [Header("Referensi Sistem Pengendali")]
         [Tooltip("Skrip untuk berjalan")]
         [SerializeField] private PlayerMovementController _movementScript;
@@ -34,20 +40,33 @@ namespace EscapeDays.Player
 
         public event Action<float, float> OnHealthChanged;
         public event Action<float, float> OnHungerChanged;
+        public event Action<float, float> OnThirstChanged; // TAMBAHAN THIRST
+        
         private bool _isDead = false;
 
         private void Awake()
         {
             _currentHealth = _maxHealth;
             _currentHunger = _maxHunger;
+            _currentThirst = _maxThirst; // TAMBAHAN THIRST
 
-            // Auto-cari Animator di anak objek (VisualContainer) jika lupa ditarik
             if (_animator == null) _animator = GetComponentInChildren<Animator>();
+        }
+
+        private void Start()
+        {
+            // Memicu nilai UI penuh di awal game
+            OnHealthChanged?.Invoke(_currentHealth, _maxHealth);
+            OnHungerChanged?.Invoke(_currentHunger, _maxHunger);
+            OnThirstChanged?.Invoke(_currentThirst, _maxThirst); // TAMBAHAN THIRST
         }
 
         private void Update()
         {
+            if (_isDead) return; // Stop pengurangan vitals jika pemain sudah mati
+
             HandleHunger();
+            HandleThirst(); // TAMBAHAN THIRST
         }
 
         private void HandleHunger()
@@ -60,9 +79,18 @@ namespace EscapeDays.Player
             }
         }
 
+        private void HandleThirst() // TAMBAHAN THIRST
+        {
+            if (_currentThirst > 0)
+            {
+                _currentThirst -= _thirstDepletionRate * Time.deltaTime;
+                _currentThirst = Mathf.Max(_currentThirst, 0f);
+                OnThirstChanged?.Invoke(_currentThirst, _maxThirst);
+            }
+        }
+
         public void TakeDamage(float amount)
         {
-            // GEMBOK PENGAMAN: Jika sudah mati, abaikan semua damage/serangan masuk!
             if (_isDead) return; 
 
             _currentHealth -= amount;
@@ -72,7 +100,7 @@ namespace EscapeDays.Player
 
             if (_currentHealth <= 0)
             {
-                _isDead = true; // Tandai bahwa pemain sudah mati
+                _isDead = true; 
                 Die();
             }
         }
@@ -87,8 +115,6 @@ namespace EscapeDays.Player
             {
                 rb.linearVelocity = Vector2.zero;
                 rb.angularVelocity = 0f; 
-                
-                // Opsional tapi disarankan: Matikan simulasi fisik agar mayat tidak bisa didorong-dorong
                 rb.simulated = false; 
             }
 
@@ -97,7 +123,6 @@ namespace EscapeDays.Player
                 _animator.SetTrigger("Die");
             }
 
-            // TAMBAHAN BARU: Hancurkan objek pemain setelah animasi selesai (misal 2 detik)
             Destroy(gameObject, _destroyDelay);
         }
     }
