@@ -4106,7 +4106,7 @@ GameObject:
   - component: {fileID: 1070381980}
   - component: {fileID: 1070381988}
   - component: {fileID: 1070381987}
-  - component: {fileID: 1070381986}
+  - component: {fileID: 1070381990}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -4132,7 +4132,7 @@ MonoBehaviour:
   _animator: {fileID: 1358589766}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
   _rb: {fileID: 1070381985}
-  _movementScript: {fileID: 1070381987}
+  _movementScript: {fileID: 1070381990}
 --- !u!4 &1070381983
 Transform:
   m_ObjectHideFlags: 0
@@ -4142,7 +4142,7 @@ Transform:
   m_GameObject: {fileID: 1070381979}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.29, y: 0.03, z: 0}
+  m_LocalPosition: {x: 11.9, y: -8.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -4177,20 +4177,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1070381986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070381979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.AIDestinationSetter
-  version: 1
-  target: {fileID: 45657252}
 --- !u!114 &1070381987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4297,6 +4283,21 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.7
+--- !u!114 &1070381990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070381979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f6081162f46f945a3095e613ca023b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EscapeDays.Enemy.EnemyMovement
+  _playerTransform: {fileID: 45657252}
+  _detectionRange: 7
+  _loseRange: 10
 --- !u!1 &1358589764
 GameObject:
   m_ObjectHideFlags: 0
