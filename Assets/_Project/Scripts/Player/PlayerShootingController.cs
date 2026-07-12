@@ -32,6 +32,8 @@ namespace EscapeDays.Player
         // Event ini sangat berguna agar skrip UI bisa tahu kapan harus mengupdate teks peluru di layar
         public event Action<int, int> OnAmmoChanged;
 
+        public event Action OnReloadStart;
+
         private void Awake()
         {
             _bulletPool = GetComponent<BulletPool>();
@@ -45,8 +47,11 @@ namespace EscapeDays.Player
 
         private void Start()
         {
-            // Isi penuh peluru saat awal game
+            // 1. Isi penuh peluru saat awal game
             _currentAmmo = _maxAmmo;
+
+            // 2. TAMBAHKAN BARIS INI: Pemicu agar UI langsung sinkron di detik pertama game dimulai
+            OnAmmoChanged?.Invoke(_currentAmmo, _maxAmmo);
         }
 
         private void OnDestroy()
@@ -68,16 +73,21 @@ namespace EscapeDays.Player
 
         private void Update()
         {
-            // Jika sudah mati ATAU sedang reload, hentikan proses tembak
+            // ========================================================
+            // 1. TAMBAHAN BARU: Gembok mutlak saat game sedang di-pause
+            // ========================================================
+            if (Time.timeScale == 0f) return; 
+
+            // 2. Gembok jika sudah mati ATAU sedang reload
             if (_isDead || _isReloading) return;
 
             // Logika Manual Reload (Tombol R)
             if (Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
             {
-                if (_currentAmmo < _maxAmmo) // Hanya reload jika peluru belum penuh
+                if (_currentAmmo < _maxAmmo) 
                 {
                     StartCoroutine(ReloadRoutine());
-                    return; // Keluar dari Update agar tidak bisa menembak di frame ini
+                    return; 
                 }
             }
 
@@ -93,7 +103,6 @@ namespace EscapeDays.Player
                     }
                     else
                     {
-                        // Auto Reload jika mencoba menembak tapi peluru habis
                         StartCoroutine(ReloadRoutine());
                     }
                 }
@@ -119,17 +128,15 @@ namespace EscapeDays.Player
         {
             _isReloading = true;
             
-            // Opsional: Panggil animasi atau suara reload di sini
+            // 2. TEMBAKKAN SINYAL RELOAD KE UI SEBELUM JEDA WAKTU DIMULAI
+            OnReloadStart?.Invoke(); 
             Debug.Log("Reloading..."); 
 
-            // Jeda selama waktu reload
             yield return new WaitForSeconds(_reloadTime);
 
-            // Isi kembali peluru
             _currentAmmo = _maxAmmo;
             _isReloading = false;
 
-            // Perbarui UI setelah reload selesai
             OnAmmoChanged?.Invoke(_currentAmmo, _maxAmmo);
             Debug.Log("Reload Complete!");
         }

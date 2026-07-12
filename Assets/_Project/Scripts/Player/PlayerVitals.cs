@@ -40,7 +40,8 @@ namespace EscapeDays.Player
 
         public event Action<float, float> OnHealthChanged;
         public event Action<float, float> OnHungerChanged;
-        public event Action<float, float> OnThirstChanged; // TAMBAHAN THIRST
+        public event Action<float, float> OnThirstChanged;
+        public event Action OnPlayerDeath;
         
         private bool _isDead = false;
 
@@ -122,6 +123,8 @@ namespace EscapeDays.Player
             {
                 _animator.SetTrigger("Die");
             }
+
+            OnPlayerDeath?.Invoke();
 
             Destroy(gameObject, _destroyDelay);
         }

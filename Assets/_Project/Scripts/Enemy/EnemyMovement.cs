@@ -79,5 +79,24 @@ namespace EscapeDays.Enemy
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, _loseRange);
         }
+
+        public void OnProvoked()
+        {
+            _isChasing = true;
+            
+            if (_ai != null) 
+            {
+                _ai.isStopped = false; // Lepas rem
+            }
+
+            // TRIK PENTING: Perluas batas jarak menyerah (_loseRange)
+            // Jika pemain menembak dari jarak 15 meter (di luar loseRange 10 meter),
+            // musuh akan langsung berhenti lagi di detik berikutnya jika ini tidak diubah.
+            // Dengan mengubahnya menjadi 30 meter, musuh akan gigih mengejar!
+            if (_loseRange < 30f)
+            {
+                _loseRange = 30f; 
+            }
+        }
     }
 }

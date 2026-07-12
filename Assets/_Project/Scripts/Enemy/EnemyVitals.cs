@@ -9,6 +9,9 @@ namespace EscapeDays.Enemy
         [SerializeField] private float _maxHealth = 30f;
         private float _currentHealth;
         private bool _isDead = false; // GEMBOK: Mencegah efek terpanggil berkali-kali
+        
+        // TAMBAHAN: Gembok kekebalan sementara untuk mencegah double-damage
+        private bool _isInvulnerable = false; 
 
         [Header("Pengaturan Kematian")]
         [Tooltip("Waktu tunggu setelah animasi mati sebelum musuh lenyap")]
@@ -41,10 +44,21 @@ namespace EscapeDays.Enemy
 
         public void TakeDamage(float damageAmount, float knockbackForce = 0f, Transform attackerTransform = null)
         {
-            // Jika sudah mati, abaikan semua peluru/serangan yang masuk
-            if (_isDead) return; 
+            // GEMBOK GANDA: Abaikan jika sudah mati ATAU sedang dalam masa kebal sepersekian detik
+            if (_isDead || _isInvulnerable) return; 
+
+            // Langsung aktifkan masa kebal begitu peluru pertama menyentuh
+            StartCoroutine(InvulnerabilityRoutine());
 
             _currentHealth -= damageAmount;
+
+            if (TryGetComponent(out EnemyMovement movementBrain))
+            {
+                movementBrain.OnProvoked();
+            }
+            
+            // Log opsional agar Anda bisa melihat damage yang masuk di Console Unity dengan jelas
+            // Debug.Log($"HP Musuh berkurang {damageAmount}. Sisa: {_currentHealth}");
 
             if (_spriteRenderer != null) StartCoroutine(FlashHitEffect());
 
@@ -57,6 +71,19 @@ namespace EscapeDays.Enemy
             {
                 Die();
             }
+        }
+
+        // FUNGSI BARU: Mengatur jeda kekebalan dari double-hit
+        private IEnumerator InvulnerabilityRoutine()
+        {
+            _isInvulnerable = true;
+            
+            // Beri waktu kebal 0.1 detik. 
+            // Angka ini sangat pas untuk membiarkan peluru yang sama lewat sepenuhnya
+            // tanpa membuat musuh terasa kebal dari tembakan peluru berikutnya.
+            yield return new WaitForSeconds(0.1f); 
+            
+            _isInvulnerable = false;
         }
 
         private IEnumerator FlashHitEffect()
