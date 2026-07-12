@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: f433e0584e53d1e4fa1860a0a6862e03
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4280442467432574423
+    second: NDA-removebg-preview_0
+  - first:
+      213: 484029790932386864
+    second: NDA-removebg-preview_1
+  - first:
+      213: -3489469153646664230
+    second: NDA-removebg-preview_2
+  - first:
+      213: -7943379293240141706
+    second: NDA-removebg-preview_3
+  - first:
+      213: 2229616283945990870
+    second: NDA-removebg-preview_4
+  - first:
+      213: 3482341734122861623
+    second: NDA-removebg-preview_5
+  - first:
+      213: -7235037955729530168
+    second: NDA-removebg-preview_6
+  - first:
+      213: 1754563735751122436
+    second: NDA-removebg-preview_7
+  - first:
+      213: 4515320591257163612
+    second: NDA-removebg-preview_8
+  - first:
+      213: 6457949118208955362
+    second: NDA-removebg-preview_9
+  - first:
+      213: 6580078971805480436
+    second: NDA-removebg-preview_10
+  - first:
+      213: 2294903100304374692
+    second: NDA-removebg-preview_11
+  - first:
+      213: 6652863980627103098
+    second: NDA-removebg-preview_12
+  - first:
+      213: 4588785831867969211
+    second: NDA-removebg-preview_13
+  - first:
+      213: -410636694306175401
+    second: NDA-removebg-preview_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NDA-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 232
+        width: 184
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 90, y: -40}
+        - {x: 90, y: 58}
+        - {x: -90, y: 58}
+        - {x: -90, y: -45}
+        - {x: -85, y: -64}
+        - {x: 89, y: -64}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dda0d0debf276b30800000000000000
+      internalID: 4280442467432574423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NDA-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 232
+        width: 187
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 93.5, y: -25.5}
+        - {x: 93.5, y: 18.5}
+        - {x: 65.5, y: 59.5}
+        - {x: -65.5, y: 59.5}
+        - {x: -91.5, y: 16.5}
+        - {x: -91.5, y: -11.5}
+        - {x: -85.5, y: -62.5}
+        - {x: 90.5, y: -62.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0344b35c78e97b600800000000000000
+      internalID: 484029790932386864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NDA-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 232
+        width: 205
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 79.5, y: 0.5}
+        - {x: 79.5, y: 59.5}
+        - {x: -100.5, y: 59.5}
+        - {x: -100.5, y: 0.5}
+        - {x: -94.5, y: -61.5}
+        - {x: 73.5, y: -61.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad52532fa4ae29fc0800000000000000
+      internalID: -3489469153646664230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NDA-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 159
+        width: 200
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 93, y: -28.5}
+        - {x: 93, y: -23.5}
+        - {x: 52, y: 26.5}
+        - {x: -55, y: 26.5}
+        - {x: -59, y: 23.5}
+        - {x: -69, y: 11.5}
+        - {x: -98, y: -25.5}
+        - {x: -98, y: -28.5}
+        - {x: -95, y: -31.5}
+        - {x: 90, y: -31.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6785a3e5e9273c190800000000000000
+      internalID: -7943379293240141706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NDA-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 161
+        width: 194
+        height: 60
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 95, y: -13}
+        - {x: 61, y: 30}
+        - {x: -60, y: 29}
+        - {x: -83, y: -2}
+        - {x: -95, y: -18}
+        - {x: -95, y: -29}
+        - {x: 96, y: -29}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6daf60e723031fe10800000000000000
+      internalID: 2229616283945990870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NDA-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 159
+        width: 196
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 96, y: -27.5}
+        - {x: 96, y: -22.5}
+        - {x: 64, y: 22.5}
+        - {x: 55, y: 30.5}
+        - {x: -57, y: 30.5}
+        - {x: -95, y: -19.5}
+        - {x: -96, y: -29.5}
+        - {x: 95, y: -29.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73439e06b53c35030800000000000000
+      internalID: 3482341734122861623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NDA-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 74
+        width: 175
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 83.5, y: -35.5}
+        - {x: 83.5, y: 36.5}
+        - {x: -84.5, y: 36.5}
+        - {x: -84.5, y: -35.5}
+        - {x: -26.5, y: -36.5}
+        - {x: 81.5, y: -36.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c2e548ef4bf79b90800000000000000
+      internalID: -7235037955729530168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NDA-removebg-preview_7
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 74
+        width: 172
+        height: 75
+      alignment: 9
+      pivot: {x: 0.49652702, y: 0.41409394}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 85, y: 35.5}
+        - {x: 84, y: 36.5}
+        - {x: -84, y: 36.5}
+        - {x: -84, y: -35.5}
+        - {x: -82, y: -36.5}
+        - {x: 85, y: -36.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40e5a3deb66795810800000000000000
+      internalID: 1754563735751122436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NDA-removebg-preview_8
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 6
+        width: 72
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 26, y: -21}
+        - {x: 34, y: 3}
+        - {x: 34, y: 15}
+        - {x: 29, y: 24}
+        - {x: 24, y: 31}
+        - {x: -33, y: 31}
+        - {x: -34, y: 30}
+        - {x: -34, y: -25}
+        - {x: -21, y: -30}
+        - {x: 16, y: -30}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c57d3e09724a9ae30800000000000000
+      internalID: 4515320591257163612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NDA-removebg-preview_9
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 71
+        width: 173
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 84.5, y: 38}
+        - {x: -83.5, y: 38}
+        - {x: -83.5, y: -35}
+        - {x: 84.5, y: -35}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e35460e18e3f9950800000000000000
+      internalID: 6457949118208955362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NDA-removebg-preview_10
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 6
+        width: 191
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 87.5, y: 28}
+        - {x: -92.5, y: 28}
+        - {x: -92.5, y: -13}
+        - {x: 14.5, y: -28}
+        - {x: 87.5, y: -28}
+      - - {x: -79.5, y: 14}
+        - {x: -80.5, y: 16}
+        - {x: -66.5, y: 16}
+        - {x: -65.5, y: 15}
+        - {x: -66.5, y: 14}
+      - - {x: -56.5, y: 14}
+        - {x: -56.5, y: 16}
+        - {x: -44.5, y: 16}
+        - {x: -44.5, y: 14}
+      - - {x: -34.5, y: 14}
+        - {x: -34.5, y: 16}
+        - {x: -22.5, y: 16}
+        - {x: -22.5, y: 14}
+      - - {x: -12.5, y: 14}
+        - {x: -12.5, y: 16}
+        - {x: 7.5, y: 16}
+        - {x: 7.5, y: 14}
+      - - {x: 17.5, y: 14}
+        - {x: 17.5, y: 16}
+        - {x: 36.5, y: 16}
+        - {x: 36.5, y: 14}
+      - - {x: 47.5, y: 14}
+        - {x: 46.5, y: 16}
+        - {x: 58.5, y: 16}
+        - {x: 58.5, y: 14}
+      - - {x: 68.5, y: 14}
+        - {x: 68.5, y: 16}
+        - {x: 78.5, y: 16}
+        - {x: 77.5, y: 14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f5bb7c46f2215b50800000000000000
+      internalID: 6580078971805480436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NDA-removebg-preview_11
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 6
+        width: 15
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 3.5, y: 28}
+        - {x: -5.5, y: 28}
+        - {x: -5.5, y: -28}
+        - {x: 3.5, y: -28}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4abb597f53229df10800000000000000
+      internalID: 2294903100304374692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NDA-removebg-preview_12
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 5
+        width: 130
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 55, y: -26}
+        - {x: 55, y: 20}
+        - {x: 0, y: 22}
+        - {x: -8, y: 29}
+        - {x: -55, y: 29}
+        - {x: -63, y: 21}
+        - {x: -63, y: -28}
+        - {x: 46, y: -28}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d0540ca88b35c50800000000000000
+      internalID: 6652863980627103098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NDA-removebg-preview_13
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 6
+        width: 71
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 33.5, y: -16.5}
+        - {x: 33.5, y: 3.5}
+        - {x: 6.5, y: 29.5}
+        - {x: -3.5, y: 30.5}
+        - {x: -13.5, y: 22.5}
+        - {x: -34.5, y: -0.5}
+        - {x: -34.5, y: -28.5}
+        - {x: 25.5, y: -28.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbee5d2d664aeaf30800000000000000
+      internalID: 4588785831867969211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NDA-removebg-preview_14
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 8
+        width: 80
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 38, y: 24}
+        - {x: -37, y: 24}
+        - {x: -37, y: -16}
+        - {x: -34, y: -27}
+        - {x: 38, y: -27}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 756c3282a102d4af0800000000000000
+      internalID: -410636694306175401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3b1e48598aa343849826a8c30ac131f7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      NDA-removebg-preview_0: 4280442467432574423
+      NDA-removebg-preview_1: 484029790932386864
+      NDA-removebg-preview_10: 6580078971805480436
+      NDA-removebg-preview_11: 2294903100304374692
+      NDA-removebg-preview_12: 6652863980627103098
+      NDA-removebg-preview_13: 4588785831867969211
+      NDA-removebg-preview_14: -410636694306175401
+      NDA-removebg-preview_2: -3489469153646664230
+      NDA-removebg-preview_3: -7943379293240141706
+      NDA-removebg-preview_4: 2229616283945990870
+      NDA-removebg-preview_5: 3482341734122861623
+      NDA-removebg-preview_6: -7235037955729530168
+      NDA-removebg-preview_7: 1754563735751122436
+      NDA-removebg-preview_8: 4515320591257163612
+      NDA-removebg-preview_9: 6457949118208955362
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
