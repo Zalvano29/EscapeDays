@@ -559,6 +559,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _playerMovementScript: {fileID: 45657253}
+  _hitSFX: {fileID: 8300000, guid: 57371595fbbcdf5418d07027c2f3f332, type: 3}
 --- !u!1 &59689638
 GameObject:
   m_ObjectHideFlags: 0

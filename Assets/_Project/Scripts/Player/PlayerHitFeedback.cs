@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using EscapeDays.Core; // WAJIB DITAMBAHKAN: Untuk mengakses AudioManager
 
 namespace EscapeDays.Player
 {
@@ -9,14 +10,18 @@ namespace EscapeDays.Player
         [SerializeField] private Color _flashColor = Color.red;
         [SerializeField] private float _flashDuration = 0.1f;
         
-        [Header("Referensi Visual")] // TAMBAHKAN INI
+        [Header("Referensi Visual")] 
         [Tooltip("Tarik objek VisualContainer ke sini")]
-        [SerializeField] private SpriteRenderer _sprite; // SEKARANG BISA DIISI DI INSPECTOR
+        [SerializeField] private SpriteRenderer _sprite; 
 
         [Header("Pengaturan Fisika (Knockback)")]
         [SerializeField] private float _knockbackImpulse = 20f;
         [SerializeField] private LayerMask _enemyLayer;
         [SerializeField] private MonoBehaviour _playerMovementScript;
+
+        [Header("Pengaturan Audio")] // TAMBAHAN BARU
+        [Tooltip("Masukkan file punch-sfx.mp3 ke sini")]
+        [SerializeField] private AudioClip _hitSFX;
 
         private PlayerVitals _vitals;
         private Rigidbody2D _rb;
@@ -28,7 +33,6 @@ namespace EscapeDays.Player
             _vitals = GetComponent<PlayerVitals>();
             _rb = GetComponent<Rigidbody2D>();
             
-            // HANYA cari otomatis jika di Inspector masih kosong
             if (_sprite == null) _sprite = GetComponentInChildren<SpriteRenderer>();
 
             if (_sprite != null)
@@ -55,11 +59,19 @@ namespace EscapeDays.Player
 
         private void HandleHitEffect(float currentHealth, float maxHealth)
         {
+            // Jika HP saat ini LEBIH KECIL dari HP sebelumnya, berarti pemain terkena damage!
             if (currentHealth < _lastHealth)
             {
+                // 1. MAINKAN SUARA TERPUKUL
+                if (AudioManager.Instance != null && _hitSFX != null)
+                {
+                    AudioManager.Instance.PlaySFX(_hitSFX);
+                }
+
+                // 2. MUNCULKAN KEDIPAN MERAH
                 if (_sprite != null) StartCoroutine(FlashEffect());
 
-                // KITA KIRIM DATA HP SAAT INI KE COROUTINE KNOCKBACK
+                // 3. PENTALKAN PEMAIN
                 if (_rb != null) StartCoroutine(ApplySmartKnockbackRoutine(currentHealth));
             }
 
@@ -73,7 +85,6 @@ namespace EscapeDays.Player
             _sprite.color = _originalColor;
         }
 
-        // COROUTINE SEKARANG MENERIMA DATA HP
         private IEnumerator ApplySmartKnockbackRoutine(float currentHealth)
         {
             if (_playerMovementScript != null) _playerMovementScript.enabled = false;
@@ -90,19 +101,14 @@ namespace EscapeDays.Player
             _rb.linearVelocity = Vector2.zero;
             _rb.AddForce(knockbackDirection * _knockbackImpulse, ForceMode2D.Impulse);
 
-            // Tunggu pemain selesai terpental di udara
             yield return new WaitForSeconds(0.2f);
 
-            // CEK STATUS KEMATIAN:
-            // Hanya kembalikan kendali JIKA pemain masih hidup
             if (currentHealth > 0)
             {
                 if (_playerMovementScript != null) _playerMovementScript.enabled = true;
             }
             else
             {
-                // Jika ini adalah hit yang membunuh pemain, rem total fisika setelah pentalan selesai
-                // agar jasadnya tidak meluncur terus jika Anda menekan tombol arah.
                 _rb.linearVelocity = Vector2.zero;
                 _rb.angularVelocity = 0f;
             }
