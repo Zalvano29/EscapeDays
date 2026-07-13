@@ -358,7 +358,6 @@ MonoBehaviour:
   _rb: {fileID: 45657250}
   _animator: {fileID: 1434839402}
   _walkSFX: {fileID: 8300000, guid: df90a137ec94ccb45b717acfd8eadfa8, type: 3}
-  _walkSFXInterval: 0.4
 --- !u!61 &45657254
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1761,99 +1760,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &620288794
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 620288795}
-  - component: {fileID: 620288796}
-  - component: {fileID: 620288797}
-  m_Layer: 6
-  m_Name: MeleePoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &620288795
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 620288794}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 1070381983}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &620288796
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 620288794}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &620288797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 620288794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ee719963edd082498dea6f94ea7a585, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EscapeDays.Enemy.EnemyMeleeAttack
-  _meleeDamage: 15
-  _attackCooldown: 0.5
 --- !u!1 &623487268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2615,6 +2521,62 @@ Transform:
   - {fileID: 2112314663}
   m_Father: {fileID: 45657252}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &810023509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 810023511}
+  - component: {fileID: 810023510}
+  m_Layer: 0
+  m_Name: EnemySpawnerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &810023510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810023509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbec566084223504282f577240aeb940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EscapeDays.Enemy.EnemySpawner
+  _enemyPrefab: {fileID: 3061196654685534280, guid: 98979d3673ca93c4b912cdcbe4eff3d9, type: 3}
+  _playerTransform: {fileID: 45657252}
+  _spawnInterval: 1
+  _maxEnemiesInScene: 99
+  _mapCenter: {x: 71.3, y: 46.9}
+  _mapSize: {x: 105, y: 80}
+  _safeZoneRadius: 8
+  _solidWallLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  _bodyCheckRadius: 0.4
+  _maxAttempts: 10
+--- !u!4 &810023511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810023509}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 69.1, y: 46.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &816078126
 GameObject:
   m_ObjectHideFlags: 0
@@ -3131,7 +3093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2282454efef803469f0058ad18a1121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EscapeDays.UI.WeaponUIManager
-  _shootingScript: {fileID: 0}
+  _shootingScript: {fileID: 45657257}
   _ammoText: {fileID: 521430767}
 --- !u!114 &957329521
 MonoBehaviour:
@@ -3303,212 +3265,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 794260054}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1070381979
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1070381983}
-  - component: {fileID: 1070381989}
-  - component: {fileID: 1070381985}
-  - component: {fileID: 1070381980}
-  - component: {fileID: 1070381988}
-  - component: {fileID: 1070381987}
-  - component: {fileID: 1070381990}
-  m_Layer: 6
-  m_Name: Enemy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1070381980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070381979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df629ecbcb995644cbe833223581a8b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EscapeDays.Enemy.EnemyVitals
-  _maxHealth: 100
-  _destroyDelay: 1.5
-  _spriteRenderer: {fileID: 1358589767}
-  _animator: {fileID: 1358589766}
-  _hitColor: {r: 1, g: 0, b: 0, a: 1}
-  _rb: {fileID: 1070381985}
-  _movementScript: {fileID: 1070381990}
---- !u!4 &1070381983
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070381979}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.79, y: 17.33, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 620288795}
-  - {fileID: 1358589765}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1070381985
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070381979}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 5
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!114 &1070381987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070381979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.AIPath
-  version: 5
-  radius: 0.5
-  height: 2
-  canMove: 1
-  maxSpeed: 3.5
-  gravity: {x: 0, y: 0, z: 0}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  centerOffsetCompatibility: NaN
-  repathRateCompatibility: NaN
-  canSearchCompability: 0
-  orientation: 1
-  enableRotation: 0
-  autoRepath:
-    mode: 2
-    interval: 0.5
-    sensitivity: 10
-    maximumInterval: 2
-    visualizeSensitivity: 0
-  targetCompatibility: {fileID: 0}
-  maxAcceleration: -2.5
-  rotationSpeed: 360
-  slowdownDistance: 0.6
-  pickNextWaypointDist: 2
-  endReachedDistance: 0.2
-  alwaysDrawGizmos: 0
-  slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
-  constrainInsideGraph: 0
---- !u!114 &1070381988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070381979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.Seeker
-  version: 1
-  drawGizmos: 1
-  detailedGizmos: 0
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
---- !u!58 &1070381989
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070381979}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 4f530c28d623db348a52cb90e47be306, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.7
---- !u!114 &1070381990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070381979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1f6081162f46f945a3095e613ca023b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EscapeDays.Enemy.EnemyMovement
-  _playerTransform: {fileID: 45657252}
-  _detectionRange: 7
-  _loseRange: 10
 --- !u!1 &1126238658
 GameObject:
   m_ObjectHideFlags: 0
@@ -3691,135 +3447,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200771297}
   m_CullTransparentMesh: 1
---- !u!1 &1358589764
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1358589765}
-  - component: {fileID: 1358589767}
-  - component: {fileID: 1358589766}
-  - component: {fileID: 1358589768}
-  m_Layer: 6
-  m_Name: VisualContainer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1358589765
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358589764}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 1070381983}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1358589766
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358589764}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 54e5284c2b5d3bd4881a8c650579b3c6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!212 &1358589767
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358589764}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: -2756699986305231383, guid: 405110abe3ec4d246ae9a8f7996965ad, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.78, y: 1.33}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
---- !u!114 &1358589768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358589764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d172e526108e9b46b9f2d35329b942a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EscapeDays.Enemy.EnemyAnimationController
-  _animator: {fileID: 1358589766}
-  _spriteRenderer: {fileID: 1358589767}
 --- !u!1 &1428799955
 GameObject:
   m_ObjectHideFlags: 0
@@ -130700,6 +130327,7 @@ MonoBehaviour:
   _playerVitals: {fileID: 45657255}
   _deathHUDGroup: {fileID: 59689638}
   _showDelay: 1
+  _clickSFX: {fileID: 8300000, guid: 44ac24ebc2e86b54eaca18adf5688f03, type: 3}
 --- !u!114 &1856076094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130713,6 +130341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EscapeDays.UI.PauseMenuManager
   _pauseMenuPanel: {fileID: 858479859}
+  _clickSFX: {fileID: 8300000, guid: 44ac24ebc2e86b54eaca18adf5688f03, type: 3}
 --- !u!1 &1857200112
 GameObject:
   m_ObjectHideFlags: 0
@@ -131385,9 +131014,9 @@ SceneRoots:
   - {fileID: 2066254869}
   - {fileID: 1652013080}
   - {fileID: 45657252}
-  - {fileID: 1070381983}
   - {fileID: 379920115}
   - {fileID: 1856076091}
   - {fileID: 629682386}
   - {fileID: 1857200116}
   - {fileID: 1126238660}
+  - {fileID: 810023511}
