@@ -3127,7 +3127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2282454efef803469f0058ad18a1121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EscapeDays.UI.WeaponUIManager
-  _shootingScript: {fileID: 45657257}
+  _shootingScript: {fileID: 0}
   _ammoText: {fileID: 521430767}
 --- !u!114 &957329521
 MonoBehaviour:
