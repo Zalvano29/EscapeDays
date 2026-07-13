@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using EscapeDays.Core;
 
 namespace EscapeDays.Player
 {
@@ -21,6 +22,10 @@ namespace EscapeDays.Player
         [Tooltip("Waktu yang dibutuhkan untuk reload (dalam detik)")]
         [SerializeField] private float _reloadTime = 1.5f;
         
+        [Header("Audio Settings")]
+        [SerializeField] private AudioClip _shootSFX;
+        [SerializeField] private AudioClip _reloadSFX;
+
         private int _currentAmmo;
         private bool _isReloading = false;
 
@@ -122,6 +127,12 @@ namespace EscapeDays.Player
             {
                 _bulletPool.GetBullet(_firePoint.position, _firePoint.rotation);
             }
+
+            // 4. Mainkan suara tembakan
+            if (AudioManager.Instance != null && _shootSFX != null)
+            {
+                AudioManager.Instance.PlaySFX(_shootSFX);
+            }
         }
 
         private IEnumerator ReloadRoutine()
@@ -131,6 +142,12 @@ namespace EscapeDays.Player
             // 2. TEMBAKKAN SINYAL RELOAD KE UI SEBELUM JEDA WAKTU DIMULAI
             OnReloadStart?.Invoke(); 
             Debug.Log("Reloading..."); 
+
+            // 3. Mainkan suara reload
+            if (AudioManager.Instance != null && _reloadSFX != null)
+            {
+                AudioManager.Instance.PlaySFX(_reloadSFX);
+            }
 
             yield return new WaitForSeconds(_reloadTime);
 

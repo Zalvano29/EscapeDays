@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem; // WAJIB ditambahkan untuk sistem baru
+using EscapeDays.Core;
 
 namespace EscapeDays.Player
 {
@@ -12,12 +13,29 @@ namespace EscapeDays.Player
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private Animator _animator;
 
+        [Header("Audio Settings")]
+        [SerializeField] private AudioClip _walkSFX;
+        private AudioSource _walkAudioSource;
+
         private Vector2 _movementInput;
 
         private void Awake()
         {
             if (_rb == null) _rb = GetComponent<Rigidbody2D>();
             if (_animator == null) _animator = GetComponentInChildren<Animator>(); 
+            
+            // Buat AudioSource khusus untuk langkah kaki agar bisa di-Stop kapan saja
+            _walkAudioSource = gameObject.AddComponent<AudioSource>();
+            _walkAudioSource.playOnAwake = false;
+            _walkAudioSource.loop = true; // Otomatis mengulang (loop)
+        }
+
+        private void Start()
+        {
+            if (_walkSFX != null)
+            {
+                _walkAudioSource.clip = _walkSFX;
+            }
         }
 
         private void Update()
@@ -44,6 +62,24 @@ namespace EscapeDays.Player
         {
             // 3. Eksekusi pergerakan fisik karakter
             _rb.linearVelocity = _movementInput.normalized * _moveSpeed;
+
+            // 4. Mainkan/Hentikan suara langkah kaki
+            if (_movementInput.sqrMagnitude > 0.01f)
+            {
+                // Jika sedang bergerak dan suara belum menyala, nyalakan
+                if (!_walkAudioSource.isPlaying && _walkAudioSource.clip != null)
+                {
+                    _walkAudioSource.Play();
+                }
+            }
+            else
+            {
+                // Jika berhenti bergerak dan suara masih menyala, MATIKAN seketika
+                if (_walkAudioSource.isPlaying)
+                {
+                    _walkAudioSource.Stop();
+                }
+            }
         }
     }
 }

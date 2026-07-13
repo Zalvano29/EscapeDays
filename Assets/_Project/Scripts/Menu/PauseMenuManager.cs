@@ -1,6 +1,8 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem; // Wajib untuk membaca input tombol Esc dan P
 using UnityEngine.SceneManagement; // Wajib untuk fungsi kembali ke Main Menu
+using EscapeDays.Core;
 
 namespace EscapeDays.UI
 {
@@ -10,7 +12,18 @@ namespace EscapeDays.UI
         [Tooltip("Tarik grup objek PauseMenuUI (yang berisi tombol & judul) ke sini")]
         [SerializeField] private GameObject _pauseMenuPanel;
 
+        [Header("Audio Settings")]
+        [SerializeField] private AudioClip _clickSFX;
+
         private bool _isPaused = false;
+
+        private void PlayClickSound()
+        {
+            if (AudioManager.Instance != null && _clickSFX != null)
+            {
+                AudioManager.Instance.PlaySFX(_clickSFX);
+            }
+        }
 
         private void Start()
         {
@@ -53,6 +66,7 @@ namespace EscapeDays.UI
         // Fungsi ini bisa dipanggil dari tombol Esc/P, dan juga dari tombol Resume di UI
         public void ResumeGame()
         {
+            PlayClickSound();
             if (_pauseMenuPanel != null) _pauseMenuPanel.SetActive(false);
             
             // Mengembalikan waktu berjalan normal (1 detik di dunia nyata = 1 detik di game)
@@ -63,8 +77,16 @@ namespace EscapeDays.UI
         // Fungsi untuk tombol MenuButton
         public void GoToMainMenu()
         {
+            PlayClickSound();
+            StartCoroutine(DelayGoToMainMenu());
+        }
+
+        private IEnumerator DelayGoToMainMenu()
+        {
+            // Beri waktu sejenak agar efek suara klik terdengar sebelum pindah scene
+            yield return new WaitForSecondsRealtime(0.2f);
+
             // SANGAT PENTING: Waktu harus dikembalikan ke normal sebelum pindah scene
-            // Jika tidak, Main Menu Anda akan ikut "membeku" (animasinya tidak jalan)
             Time.timeScale = 1f; 
             
             // Kembali ke Index 0 (pastikan MainMenu tetap di posisi 0 pada Build Settings)
